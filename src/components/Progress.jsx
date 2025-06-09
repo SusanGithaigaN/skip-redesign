@@ -3,7 +3,7 @@ import {steps} from '../data/data';
 
 export const Progress = () => {
   return (
-    <div className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-[#0037c2] scrollbar-track-transparent bg-[#1c1c1c] border-b-1 border-[#333333] shadow-2xl">
+    <div className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-[#0037c2] scrollbar-track-transparent bg-[#1c1c1c] border-b border-[#333333] shadow-2xl">
       <ol className="flex items-center justify-center min-w-max text-md md:text-xl font-medium text-white text-center py-6 md:py-8 gap-6 px-4">
         {steps.map((step, idx) => (
           <li

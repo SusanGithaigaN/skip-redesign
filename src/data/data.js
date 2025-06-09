@@ -4,6 +4,7 @@ import pay from '../assets/pay.svg';
 import permit from '../assets/permit.svg';
 import pin from '../assets/pin.svg';
 import truck from '../assets/truck.svg';
+import yarderIcon from '../assets/yarder-skip-2.png'
 
 export const steps = [
   { label: 'Postcode', icon: pin },
@@ -17,6 +18,7 @@ export const steps = [
 export const skipData = [
   {
     "id": 17933,
+    "icon": yarderIcon,
     "size": 4,
     "hire_period": 14,
     "transport_cost": null,
@@ -31,6 +33,7 @@ export const skipData = [
   },
   {
     "id": 17934,
+    "icon": yarderIcon,
     "size": 6,
     "hire_period": 14,
     "transport_cost": null,
@@ -45,6 +48,7 @@ export const skipData = [
   },
   {
     "id": 17935,
+    "icon": yarderIcon,
     "size": 8,
     "hire_period": 14,
     "transport_cost": null,
@@ -59,6 +63,7 @@ export const skipData = [
   },
   {
     "id": 17936,
+    "icon": yarderIcon,
     "size": 10,
     "hire_period": 14,
     "transport_cost": null,
@@ -73,6 +78,7 @@ export const skipData = [
   },
   {
     "id": 17937,
+    "icon": yarderIcon,
     "size": 12,
     "hire_period": 14,
     "transport_cost": null,
@@ -87,6 +93,7 @@ export const skipData = [
   },
   {
     "id": 17938,
+    "icon": yarderIcon,
     "size": 14,
     "hire_period": 14,
     "transport_cost": null,
@@ -101,6 +108,7 @@ export const skipData = [
   },
   {
     "id": 17939,
+    "icon": yarderIcon,
     "size": 16,
     "hire_period": 14,
     "transport_cost": null,
@@ -115,6 +123,7 @@ export const skipData = [
   },
   {
     "id": 15124,
+    "icon": yarderIcon,
     "size": 20,
     "hire_period": 14,
     "transport_cost": 248,
@@ -129,6 +138,7 @@ export const skipData = [
   },
   {
     "id": 15125,
+    "icon": yarderIcon,
     "size": 40,
     "hire_period": 14,
     "transport_cost": 248,
