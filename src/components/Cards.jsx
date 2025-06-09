@@ -1,0 +1,80 @@
+import React from 'react'
+import * as motion from "motion/react-client"
+// import skip data
+import { skipData } from '../data/data';
+
+export const Cards = () => {
+
+  return (
+    <div className='bg-[#121212]'>
+      <div className='flex items-center justify-center flex-col gap-6 py-4'>
+        <h2 className='font-bold text-xl md:text-4xl text-white'>Choose Your Skip Size </h2>
+        <p className='text-[#757575] font-semibold text-base md:text-xl'>Select the skip size that best suits your needs</p>
+        {/* cards */}
+        {/* <motion.div
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.8 }}
+          style={box}
+        > */}
+        <div className='grid grid-cols-1 md:grid-cols-3 py-6 md:py-10 gap-6'>
+          {skipData.map((skip) => (
+            <div key={skip.id} className='bg-[#1c1c1c] rounded-lg shadow-md p-6 flex flex-col justify-between'>
+              <div>
+                {/* prices */}
+                <h2 className='text-3xl font-bold text-white mb-2'>{skip.size} Yard Skip</h2>
+                <p className='text-4xl font-extrabold text-indigo-600 mb-4'>£{skip.price_before_vat} <span className='text-base text-[#d6b027] font-medium'>(ex. VAT)</span></p>
+                {/* hire_period */}
+                <div className='flex items-center text-white mb-2'>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                  </svg>
+                  <span>{skip.hire_period} Days Hire</span>
+                </div>
+                {/* roadworthy || !roadworthy */}
+                <div className='flex items-center text-green-500 mb-2'>
+                  {skip.allowed_on_road ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586l-1.293-1.293z" clipRule="evenodd" />
+                    </svg>
+                  )}
+                  <span>{skip.allowed_on_road ? 'On-Road Placement' : 'Off-Road Placement Only'}</span>
+                </div>
+                  {/* heavy_waste */}
+                <div className='flex items-center text-green-500 mb-4'>
+                  {skip.allows_heavy_waste ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586l-1.293-1.293z" clipRule="evenodd" />
+                    </svg>
+                  )}
+                  <span>{skip.allows_heavy_waste ? 'Heavy Waste Allowed' : 'No Heavy Waste'}</span>
+                </div>
+                  {/* transport costs per tonne */}
+                <p className='text-sm text-gray-500 mb-4'>
+                  VAT: {skip.vat}% | Serves: {skip.postcode}
+                  {skip.transport_cost !== null && `, Transport Cost: £${skip.transport_cost}`}
+                  {skip.per_tonne_cost !== null && `, Per Tonne: £${skip.per_tonne_cost}`}
+                </p>
+              </div>
+                  {/* cta */}
+              <button className='w-full bg-indigo-600 text-white capitalize font-bold py-3 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-150 ease-in-out'>
+                select this skip
+              </button>
+            </div>
+          ))}
+        </div>
+        {/* </motion.div> */}
+      </div>
+    </div>
+  )
+
+}
+
+export default Cards
