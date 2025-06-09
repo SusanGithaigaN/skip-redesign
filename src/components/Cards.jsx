@@ -1,25 +1,22 @@
 import React from 'react'
-import * as motion from "motion/react-client"
+import { motion } from 'framer-motion';
 // import skip data
-import { skipData } from '../data/data';
+import { skipData, itemVariants, fadeIn, containerVariants } from '../data/data';
 
 export const Cards = () => {
 
   return (
     <div className='bg-[#121212]'>
-      <div className='flex items-center justify-center flex-col gap-6 py-4'>
-        <h2 className='font-bold text-xl md:text-4xl text-white'>Choose Your Skip Size </h2>
-        <p className='text-[#757575] font-semibold text-base md:text-xl'>Select the skip size that best suits your needs</p>
+      <motion.section initial="hidden" animate="visible" variants={containerVariants} className='flex items-center justify-center flex-col gap-6 py-4 md:py-10'>
+        <motion.div variants={itemVariants} className='text-center'>
+            <motion.h2 variants={fadeIn} className="font-bold text-xl md:text-[60px] bg-gradient-to-r from-white via-blue-500 to-[#d6b027] bg-clip-text text-transparent">Choose Your Skip Size </motion.h2>
+        <motion.p variants={fadeIn} className='text-[#757575] font-semibold text-base md:text-xl'>Select the skip size that best suits your needs</motion.p>
+        </motion.div>
         {/* cards */}
-        {/* <motion.div
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.8 }}
-          style={box}
-        > */}
         <div className='grid grid-cols-1 md:grid-cols-3 py-6 md:py-10 gap-6'>
           {skipData.map((skip) => (
-            <div key={skip.id} className='bg-[#1c1c1c] rounded-lg shadow-md p-6 flex flex-col justify-between'>
-              <div>
+            <motion.div variants={itemVariants} key={skip.id} className='bg-[#1c1c1c] rounded-lg shadow-md p-6 flex flex-col justify-between'>
+              <motion.div variants={fadeIn}>
                 {/* prices */}
                 <h2 className='text-3xl font-bold text-white mb-2'>{skip.size} Yard Skip</h2>
                 <p className='text-4xl font-extrabold text-indigo-600 mb-4'>£{skip.price_before_vat} <span className='text-base text-[#d6b027] font-medium'>(ex. VAT)</span></p>
@@ -43,7 +40,7 @@ export const Cards = () => {
                   )}
                   <span>{skip.allowed_on_road ? 'On-Road Placement' : 'Off-Road Placement Only'}</span>
                 </div>
-                  {/* heavy_waste */}
+                {/* heavy_waste */}
                 <div className='flex items-center text-green-500 mb-4'>
                   {skip.allows_heavy_waste ? (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor">
@@ -56,22 +53,21 @@ export const Cards = () => {
                   )}
                   <span>{skip.allows_heavy_waste ? 'Heavy Waste Allowed' : 'No Heavy Waste'}</span>
                 </div>
-                  {/* transport costs per tonne */}
+                {/* transport costs per tonne */}
                 <p className='text-sm text-gray-500 mb-4'>
                   VAT: {skip.vat}% | Serves: {skip.postcode}
                   {skip.transport_cost !== null && `, Transport Cost: £${skip.transport_cost}`}
                   {skip.per_tonne_cost !== null && `, Per Tonne: £${skip.per_tonne_cost}`}
                 </p>
-              </div>
-                  {/* cta */}
+              </motion.div>
+              {/* cta */}
               <button className='w-full bg-indigo-600 text-white capitalize font-bold py-3 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-150 ease-in-out'>
                 select this skip
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
-        {/* </motion.div> */}
-      </div>
+      </motion.section>
     </div>
   )
 
