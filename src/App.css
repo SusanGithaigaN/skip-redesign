@@ -2,10 +2,10 @@
 
 /* custom shadow effect */
 .progress-shadow:hover {
-    text-shadow: 0 2px 8px #0037c2;
+    text-shadow: 0 22px 28px #0037c2;
 }
 .progress-shadow:hover img {
-    filter: drop-shadow(0 2px 8px #0037c2);
+    filter: drop-shadow(0 22px 28px #0037c2);
 }
 
 li.progress-hover:hover {

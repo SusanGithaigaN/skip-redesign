@@ -3,34 +3,41 @@ import { motion } from 'framer-motion';
 // import skip data
 import { skipData, itemVariants, fadeIn, containerVariants } from '../data/data';
 
+// border: border-b border-[#333333] 
 export const Cards = () => {
 
   return (
-    <div className='bg-[#121212]'>
+    <div className='bg-[#121212] px-4 md:px-6'>
       <motion.section initial="hidden" animate="visible" variants={containerVariants} className='flex items-center justify-center flex-col gap-6 py-4 md:py-10'>
         <motion.div variants={itemVariants} className='text-center'>
-            <motion.h2 variants={fadeIn} className="font-bold text-xl md:text-[60px] bg-gradient-to-r from-white via-blue-500 to-[#d6b027] bg-clip-text text-transparent">Choose Your Skip Size </motion.h2>
-        <motion.p variants={fadeIn} className='text-[#757575] font-semibold text-base md:text-xl'>Select the skip size that best suits your needs</motion.p>
+          <motion.h2 variants={fadeIn} className="font-bold text-xl md:text-[60px] bg-gradient-to-r from-white via-blue-500 to-[#d6b027] bg-clip-text text-transparent">Choose Your Skip Size </motion.h2>
+          <motion.p variants={fadeIn} className='text-[#757575] font-semibold text-base md:text-xl'>Select the skip size that best suits your needs</motion.p>
         </motion.div>
         {/* cards */}
-        <div className='grid grid-cols-1 md:grid-cols-3 py-6 md:py-10 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-6 md:py-10 gap-6'>
           {skipData.map((skip) => (
-            <motion.div variants={itemVariants} key={skip.id} whileHover={{ y: -8 }} className='flex flex-col justify-between bg-[#1c1c1c] border border-[#333333] rounded-xl shadow-xl p-6'>
+            <motion.div variants={itemVariants} key={skip.id} whileHover={{ y: -8 }} className='flex flex-col justify-between bg-[#1c1c1c] rounded-xl shadow-xl p-6 border border-[#333333] hover:shadow-2xl transition-shadow duration-300 ease-in-out'>
               <motion.div variants={fadeIn}>
                 {/* img */}
                 <img src={skip.icon} alt={`${skip.size} Yard Skip`} className='img-fluid h-48 mx-auto flex items-center' />
-                {/* prices */}
-                <h2 className='text-xl font-semibold text-white mb-2'>{skip.size} Yard Skip</h2>
-                <p className='text-xl md:text-2xl font-bold text-[#0037c2] mb-4'>£{skip.price_before_vat} <span className='text-base text-[#d6b027] font-medium'>(ex. VAT)</span></p>
-                {/* hire_period */}
-                <div className='flex items-center text-white mb-2'>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-[#0037c2]" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                  </svg>
-                  <span>{skip.hire_period} Days Hire</span>
+                {/* size */}
+                <h2 className='text-base md:text-[16px] font-semibold font-serif text-gray-300 tracking-wider mb-2 pb-2 uppercase'>{skip.size} Yard Skip</h2>
+                {/* description */}
+                <p className='text-sm md:text-base text-gray-100 mb-2'>yard description hereyard description hereyard description hereyard description hereyard description hereyard description hereyard description here</p>
+                <div className='flex flex-row gap-2 border-b border-[#333333] mb-4 py-2'>
+                  {/* prices */}
+                  {/* font-serif */}
+                  <p className='text-xl md:text-4xl font-bold text-blue-500 mb-4'>£{skip.price_before_vat} <span className='text-base text-gray-400 font-medium'> (ex. VAT)</span></p>
+                  {/* hire_period */}
+                  <div className='flex items-center text-gray-300 mb-2 ml-auto'>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{skip.hire_period} Days Hire</span>
+                  </div>
                 </div>
                 {/* roadworthy || !roadworthy */}
-                <div className='flex items-center text-green-500 mb-2'>
+                <div className='flex items-center text-gray-100 mb-2'>
                   {skip.allowed_on_road ? (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -43,7 +50,7 @@ export const Cards = () => {
                   <span>{skip.allowed_on_road ? 'On-Road Placement' : 'Off-Road Placement Only'}</span>
                 </div>
                 {/* heavy_waste */}
-                <div className='flex items-center text-green-500 mb-4'>
+                <div className='flex items-center text-gray-100 mb-4'>
                   {skip.allows_heavy_waste ? (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -56,16 +63,24 @@ export const Cards = () => {
                   <span>{skip.allows_heavy_waste ? 'Heavy Waste Allowed' : 'No Heavy Waste'}</span>
                 </div>
                 {/* transport costs per tonne */}
-                <p className='text-sm text-gray-500 mb-4'>
+                {/* <p className='text-sm text-red-500 mb-4'>
                   VAT: {skip.vat}% | Serves: {skip.postcode}
                   {skip.transport_cost !== null && `, Transport Cost: £${skip.transport_cost}`}
                   {skip.per_tonne_cost !== null && `, Per Tonne: £${skip.per_tonne_cost}`}
-                </p>
+                </p> */}
               </motion.div>
               {/* cta */}
-              <button className='w-full bg-[#0037c2] text-white capitalize font-semibold text-base py-3 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-150 ease-in-out'>
+                  <motion.div className='flex items-center justify-center'>
+              <motion.button
+  whileHover={{
+    scale: 1.2,
+    transition: { duration: 1.3 },
+  }}
+  whileTap={{ scale: 0.9, rotate: 3 }}
+   className='w-64 bg-blue-500 text-white capitalize font-semibold text-base py-3 px-4 rounded-md hover:bg-indigo-700'>
                 select this skip
-              </button>
+              </motion.button>
+            </motion.div>
             </motion.div>
           ))}
         </div>
