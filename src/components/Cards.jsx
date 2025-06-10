@@ -9,15 +9,18 @@ export const Cards = () => {
   return (
     <div className='bg-[#121212] px-4 md:px-6'>
       <motion.section initial="hidden" animate="visible" variants={containerVariants} className='flex items-center justify-center flex-col gap-6 py-4 md:py-10'>
-        <motion.div variants={itemVariants} className='text-center'>
+        <motion.div variants={itemVariants} className='text-center space-y-4 md:space-y-6'>
           <motion.h2 variants={fadeIn} className="font-bold text-xl md:text-[60px] bg-gradient-to-r from-white via-blue-500 to-[#d6b027] bg-clip-text text-transparent">Choose Your Skip Size </motion.h2>
           <motion.p variants={fadeIn} className='text-[#757575] font-semibold text-base md:text-xl'>Select the skip size that best suits your needs</motion.p>
         </motion.div>
         {/* cards */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-6 md:py-10 gap-6'>
           {skipData.map((skip) => (
-            <motion.div variants={itemVariants} key={skip.id} whileHover={{ y: -8 }} className='flex flex-col justify-between bg-[#1c1c1c] rounded-xl shadow-xl p-6 border border-[#333333] hover:shadow-2xl transition-shadow duration-300 ease-in-out'>
+            <motion.div variants={itemVariants} key={skip.id} whileHover={{ y: -8 }} className='flex flex-col justify-between bg-[#1c1c1c] rounded-xl shadow-xl p-6 space-y-2 md:space-y-4 border border-[#333333] hover:shadow-2xl transition-shadow duration-300 ease-in-out'>
               <motion.div variants={fadeIn}>
+                <div className="flex justify-end">
+                <p className='text-white font-semibold py-0.7 px-2 bg-blue-500 rounded-full text-center w-20'>{skip.size} yards</p>
+                </div>
                 {/* img */}
                 <img src={skip.icon} alt={`${skip.size} Yard Skip`} className='img-fluid h-48 mx-auto flex items-center' />
                 {/* size */}
