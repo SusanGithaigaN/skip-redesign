@@ -2,6 +2,7 @@ import React from 'react'
 import Progress from './Progress'
 import Cards from './Cards'
 import { Helmet } from 'react-helmet';
+import Info from './Info'
 import Footer from './Footer'
 
 export const Home = () => {
@@ -48,6 +49,7 @@ export const Home = () => {
             </Helmet>
             {/* page content */}
             <Progress />
+            <Info />
             <Cards />
             <Footer />
         </div>

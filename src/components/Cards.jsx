@@ -14,23 +14,6 @@ export const Cards = () => {
         variants={containerVariants}
         className="flex items-center justify-center flex-col gap-6 py-4 md:py-10"
       >
-        <motion.div
-          variants={itemVariants}
-          className="text-center space-y-4 md:space-y-6"
-        >
-          <motion.h2
-            variants={fadeIn}
-            className="font-bold text-xl md:text-[60px] bg-gradient-to-r from-white via-blue-500 to-[#d6b027] bg-clip-text text-transparent"
-          >
-            Choose Your Skip Size{" "}
-          </motion.h2>
-          <motion.p
-            variants={fadeIn}
-            className="text-[#757575] font-semibold text-base md:text-xl"
-          >
-            Select the skip size that best suits your needs
-          </motion.p>
-        </motion.div>
         {/* cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-6 md:py-10 gap-6">
           {skipData.map((skip) => (
@@ -165,8 +148,8 @@ export const Cards = () => {
                   }}
                   whileTap={{ scale: 0.9, rotate: 3 }}
                   className={`w-64 capitalize font-semibold text-base py-3 px-4 rounded-md ${selectedSkip && selectedSkip.id === skip.id
-                      ? "bg-green-500 text-white"
-                      : "bg-blue-500 text-white hover:bg-indigo-700"
+                    ? "bg-green-500 text-white"
+                    : "bg-blue-500 text-white hover:bg-indigo-700"
                     }`}
                   onClick={() => setSelectedSkip(skip)}
                 >
